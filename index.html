@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Text</title>
+    <style>
+        body {
+            font-family: 'Garamond', serif;
+            background: radial-gradient(circle, #f0e68c, #ffd700);
+            text-align: center;
+            padding: 20px;
+            color: #333;
+        }
+
+        #display-container {
+            max-width: 600px;
+            margin: auto;
+            background-color: rgba(255, 248, 220, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        #text-display {
+            font-size: 18px;
+        }
+
+        #toggle-button {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            font-size: 20px;
+            padding: 10px;
+            cursor: pointer;
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            outline: none;
+            transition: all 0.5s ease;
+        }
+
+        #apology-button {
+    position: fixed;
+    font-size: 18px;
+    cursor: pointer; /* Change cursor style to pointer */
+    background-color: #ff6347; /* Change background color */
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 20px; /* Add padding for a more comfortable size */
+    outline: none;
+    user-select: none;
+    transition: all 0.5s ease;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#apology-button:hover {
+    background-color: #d9534f; /* Change background color on hover */
+}
+
+    </style>
+</head>
+
+<body>
+    <div id="display-container">
+        <h2>Meow:</h2>
+        <p id="text-display">
+            Hey Jaan,<br><br>
+        
+            Arrey babe, ekdum maaf kor de na yaar. Je amar korechi, seta ekdom thik chhilo na. Amar mon ta kemon kore tomake chhere rakhchi, ar ami janina keno.<br>
+        
+            Tomar bina, amar jibon adhura. Tumi amar happiness, ar ami tomake kemon kore kharap korechi, eta bujhte parchhi.<br>
+        
+            Kintu suno, ami sach much sudharbo. Tumar kachhe hariye jete chai na, tai ami tomake phire paboar jonno kichu korte chai.<br><br>
+        
+            <strong>1. Honest Communication:</strong><br>
+            Tomar sathe amar sob kichu kotha bolte chai. Tomi jodi ki vabe kichu bujhte chai, ami honestly bolbo.<br><br>
+        
+            <strong>2. Personal Growth:</strong><br>
+            Ami realize korechi je amar kichu galti hoyeche. Tai ami nijer moddhe kichu shikbo.<br><br>
+        
+            <strong>3. Positive Change:</strong><br>
+            Only sorry bolte hoye na, ami tomake dekhabo je ami kemon kore change hoye gechi.<br><br>
+        
+            <strong>4. Quality Time:</strong><br>
+            Amader spent kora sob shomoy amar jonno special. Ar ami tomake phire sei special moments gulo dakte chai.<br><br>
+        
+            <strong>5. Masti Bhara Attitude:</strong><br>
+            Jibon e thakbe to ek chhoto spice, na? Tai ami tomake kotha dilam je ami tomake hasiye rakhte chai, ar proti situation handle korte chai.<br><br>
+        
+            Baby, ami khub serious. Tumar kache ekta chance chai. Tomake hasate, khushi rakhate, ar tomar mone jitate ami ready achhi.<br><br>
+        
+            Ar haan, tomar kache firte chai ami. I miss you and love you loads.<br><br>
+        
+            Shigghro dekha hobe,<br>
+            Harshit (Tomar baby)
+        </p>
+    </div>
+
+    <button id="toggle-button" onclick="toggleText()">❤️</button>
+    <button id="apology-button" onclick="moveApologyButton()">Apology Not Accepted</button>
+
+    <script>
+        var textDisplay = document.getElementById('text-display');
+        var originalText = textDisplay.innerHTML;
+        var alternateText = "Hey Jaan,<br><br>\n\nArrey babe, ekbaar maaf karde yaar.<br>\nJo maine kiya, woh bilkul bhi sahi nahi tha.<br>\nMera dil dukh raha hai tere bina, aur mujhe pata hai maine kya galti ki hai.<br>\nTere bina, meri zindagi adhuri hai.<br>\nTu meri happiness hai, aur maine tujhe hurt kiya, iske liye main khud ko bhi blame karta hoon.<br><br>\n\nLekin sun, main sach mein sudhar jaunga.<br>\nTujhe khona nahi chahta, aur isliye main tujhe firse jeetna chahta hoon.<br><br>\n\n<strong>Honest Communication:</strong><br>\nTere saath har cheez share karna chahta hoon. Tu jo bhi puchegi, main honestly jawab dunga.<br><br>\n\n<strong>Personal Growth:</strong><br>\nMaine realize kiya hai ki maine kuch galatiyon ki hain. Iske liye, main kuch changes la raha hoon apne andar.<br><br>\n\n<strong>Positive Change:</strong><br>\nBas sorry bolna nahi, main tujhe dikhana chahta hoon ki main kitna change ho gaya hoon.<br><br>\n\n<strong>Quality Time:</strong><br>\nHumara time jo humne saath bitaya, woh mere liye sabse special hai.<br>\nAur main tujhe firse woh special moments dikhane ke liye tayyar hoon.<br><br>\n\n<strong>Masti Bhara Attitude:</strong><br>\nZindagi mein thoda sa spice toh hona chahiye na? Toh main tujhe promise karta hoon ki hum dono ek saath masti karenge, aur har situation ko handle karenge.<br><br>\n\nBaby, main sach mein chahta hoon ki tu mujhe ek mauka de.<br>\nTujhe hasaane, khushi rakhne aur tere dil ko jeetne ke liye main yeh sab karne ke liye tayyar hoon.<br><br>\n\nAur haan, tujhe firse apna banana mera goal hai.<br>\nI miss you and love you loads.<br><br>\n\nJaldi milte hain,<br>\nHarshit (Your Baby)";
+        var isAlternateText = false;
+
+        function toggleText() {
+            if (isAlternateText) {
+                textDisplay.innerHTML = originalText;
+            } else {
+                textDisplay.innerHTML = alternateText;
+            }
+
+            isAlternateText = !isAlternateText;
+        }
+
+        function moveApologyButton() {
+            var apologyButton = document.getElementById('apology-button');
+            var windowWidth = window.innerWidth;
+            var windowHeight = window.innerHeight;
+
+            // Randomly position the button within the window
+            var newX = Math.max(0, Math.min(windowWidth - apologyButton.offsetWidth, Math.random() * (windowWidth - apologyButton.offsetWidth)));
+            var newY = Math.max(0, Math.min(windowHeight - apologyButton.offsetHeight, Math.random() * (windowHeight - apologyButton.offsetHeight)));
+
+            apologyButton.style.left = newX + 'px';
+            apologyButton.style.top = newY + 'px';
+
+            // Return to original position after 3 seconds (adjust as needed)
+            setTimeout(function () {
+                apologyButton.style.left = '';
+                apologyButton.style.top = '';
+            }, 3000);
+        }
+
+        // Move apology button away on hover or touch
+        var apologyButton = document.getElementById('apology-button');
+        apologyButton.addEventListener('mouseover', moveApologyButton);
+        apologyButton.addEventListener('touchstart', moveApologyButton);
+    </script>
+</body>
+
+</html>
